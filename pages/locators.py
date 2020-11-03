@@ -15,3 +15,7 @@ class ProductPageLocators:
 
 class BasketCostLocators:
     BASKET_COST = (By.CSS_SELECTOR, "div.alert:nth-child(3)>div.alertinner")
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
