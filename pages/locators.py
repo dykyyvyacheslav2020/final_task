@@ -11,7 +11,7 @@ class LoginPageLocators:
 
 
 class ProductPageLocators:
-    PRODUCT_NAME = (By.CLASS_NAME, "alertinner ")
+    SUCCESS_MESSAGE = (By.CLASS_NAME, "alertinner ")
 
 class BasketCostLocators:
     BASKET_COST = (By.CSS_SELECTOR, "div.alert:nth-child(3)>div.alertinner")
