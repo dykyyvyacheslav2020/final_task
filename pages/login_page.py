@@ -1,7 +1,7 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
-from selenium.webdriver.common.by import By
-
+from .locators import MainPageLocators
+from .locators import RegistrationLocator
 
 
 class LoginPage(BasePage):
@@ -12,18 +12,13 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not presented"
 
     def register_new_user(self, email, password):
-        go_to_login_page = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+        go_to_login_page = (self.browser.find_element(*MainPageLocators.LOGIN_LINK))
         go_to_login_page.click()
-        x = self.browser.find_element(By.CSS_SELECTOR, "input#id_registration-email.form-control")
-        x.send_keys(email)
-        registration_password1 = self.browser.find_element(By.CSS_SELECTOR,
-                                                           "input#id_registration-password1.form-control")
+        registration_email = (self.browser.find_element(*RegistrationLocator.REGISTRATION_EMAIL))
+        registration_email.send_keys(email)
+        registration_password1 = (self.browser.find_element(*RegistrationLocator.REGISTRATION_PASSWORD_1))
         registration_password1.send_keys(password)
-        registration_password2 = self.browser.find_element(By.CSS_SELECTOR,
-                                                           "input#id_registration-password2.form-control")
+        registration_password2 = (self.browser.find_element(*RegistrationLocator.REGISTRATION_PASSWORD_2))
         registration_password2.send_keys(password)
-        button_register = self.browser.find_element(By.XPATH, "//button[@value='Register']")
-        button_register.click()
-
-
-
+        button_registration = (self.browser.find_element(*RegistrationLocator.BUTTON_REGISTRATION))
+        button_registration.click()
